@@ -13,4 +13,4 @@ FROM  bellsoft/liberica-openjdk-debian:21
 WORKDIR /app
 COPY --from=build /app/target/spring_docker_hello-0.0.1-SNAPSHOT.jar /app
 EXPOSE 8080
-CMD ["java -jar spring_docker_hello-0.0.1-SNAPSHOT"]
+ENTRYPOINT ["java","-jar","/app/spring_docker_hello-0.0.1-SNAPSHOT.jar"]

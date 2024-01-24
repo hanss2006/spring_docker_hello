@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  api:
+    build: .
+    container_name: hello-spring-world
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_ARGS=-agentlib:jdwp=transport=dt_socket,address=*:5052,server=y,suspend=n,file.encoding=UTF-8
+    restart: always
+    networks:
+      - dt-network
+networks:
+  dt-network:
+    driver: bridge
